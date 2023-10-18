@@ -17,7 +17,7 @@ public class MailSend {
     private final MessageTemplate messageTemplate;
     private final AlarmRepository alarmRepository;
 
-//    @Scheduled(cron = "0 39 10 * * *")
+    @Scheduled(cron = "0 0 11 * * *")
     public void sendMail() throws MessagingException {
         HashMap<Member, List<Lecture>> map = alarmRepository.sendMailMemberList();
 

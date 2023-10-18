@@ -2,25 +2,21 @@ server:
   port: 80
 
 spring:
-#  config:
-#    import:
-#    - vault://
-#  cloud:
-#    vault:
-#      database:
-#        backend: database
-#        enabled: true
-#        username-property: spring.datasource.username
-#        password-property: spring.datasource.password
-#        role:
-#      scheme:
-#      authentication:
-#      token:
+  config:
+    import:
+    - vault://
+  cloud:
+    vault:
+      kv:
+        enabled: true
+      scheme: http
+      authentication: token
+      token:
   datasource:
     username:
     password:
-    url: 
-    driver-class-name:
+    url:
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     open-in-view: false
     defer-datasource-initialization: true
@@ -29,10 +25,12 @@ spring:
       hibernate.format_sql: true
     show-sql: true
   mail:
-    host:
-    port:
+    host: smtp.gmail.com
+    port: 587
     username:
     password:
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
+  application:
+    name: database
