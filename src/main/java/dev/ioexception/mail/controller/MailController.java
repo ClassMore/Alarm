@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MailController {
     private final MailSend mailSend;
 
-    @GetMapping("/")
-    public void mailSend() throws MessagingException {
-        mailSend.sendMail();
-    }
+//    @GetMapping("/")
+//    public void mailSend() throws MessagingException {
+//        mailSend.sendMail();
+//    }
 }

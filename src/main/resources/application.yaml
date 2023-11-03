@@ -2,20 +2,10 @@ server:
   port: 80
 
 spring:
-  config:
-    import:
-    - vault://
-  cloud:
-    vault:
-      kv:
-        enabled: true
-      scheme: http
-      authentication: token
-      token:
   datasource:
-    username:
-    password:
-    url:
+    username: ${username}
+    password: ${password}
+    url: ${jdbcUrl}
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     open-in-view: false
@@ -27,8 +17,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username:
-    password:
+    username: ${gmail}
+    password: ${gmailPassword}
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
